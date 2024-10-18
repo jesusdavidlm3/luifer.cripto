@@ -5,13 +5,15 @@ import Home from './pages/Home'
 import ErrorPage from './pages/ErrorPage'
 import Root from './pages/Root'
 import Register from './pages/Register'
+import './styles.scss'
+import ContextProvider from './context/ContextProvider'
 
   const router = createBrowserRouter([{
     path: '/',
     errorElement: <ErrorPage/>,
     element: <Root/>,
     children: [{
-      path: '/Hogin',
+      path: '/Login',
       element: <Login/>
     },{
       path: '/Home',
@@ -23,5 +25,7 @@ import Register from './pages/Register'
   }])
 
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+  <ContextProvider>
+    <RouterProvider router={router}/>
+  </ContextProvider>
 )
