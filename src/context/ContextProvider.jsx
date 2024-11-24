@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { appContext } from './appContext'
+import { message } from 'antd'
 
 const ContextProvider = ({children}) => {
 
@@ -7,6 +8,8 @@ const ContextProvider = ({children}) => {
     const [logged, setLogged] = useState(false)
     const [deseaseList, setDeseaseList] = useState([0])
     const [treatmentList, setTreatmentList] = useState([0])
+    const [doctorsList, setDoctorsList] = useState([0])
+    const [messageApi, contextHolder] = message.useMessage()
 
     return(
         <appContext.Provider value={{
@@ -17,7 +20,11 @@ const ContextProvider = ({children}) => {
             deseaseList,
             setDeseaseList,
             treatmentList,
-            setTreatmentList
+            setTreatmentList,
+            doctorsList,
+            setDoctorsList,
+            messageApi,
+            contextHolder,
         }}>
             {children}
         </appContext.Provider>

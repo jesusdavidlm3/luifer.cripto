@@ -24,12 +24,14 @@ const Register = () => {
     const submitRegister = async () => {
         const id = document.getElementById('id').value
         const name = document.getElementById('name').value
+        const username = document.getElementById('username').value
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
 
         const data ={
             id: id,
             name: name,
+            username: username,
             email: email,
             password: await encrypt(password),
             diseaseId: selectedDisease,
@@ -42,6 +44,7 @@ const Register = () => {
                 type: 'success',
                 content: 'Usuario registrado con exito'
             })
+            navigate('/login')
         }else{
             console.log(res)
             messageApi.open({
@@ -61,6 +64,9 @@ const Register = () => {
                 </Form.Item>
                 <Form.Item name='name'  className='field'>
                     <Input placeholder='Nombre'/>
+                </Form.Item>
+                <Form.Item name='username'  className='field'>
+                    <Input placeholder='Usuario'/>
                 </Form.Item>
                 <Form.Item rules={[{type: 'email', message: 'Ingrese un correo valido'}]} name='email'  className='field'>
                     <Input placeholder='Correo'/>
