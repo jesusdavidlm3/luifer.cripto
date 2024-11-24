@@ -12,11 +12,11 @@ const Login = () => {
     const [messageApi, contextHolder] = message.useMessage()
 
     const submitLogin = async () => {
-        const email = document.getElementById('email').value
+        const username = document.getElementById('username').value
         const password = document.getElementById('password').value
 
         const data = {
-            email: email,
+            username: username,
             password: await encrypt(password)
         }
 
@@ -39,8 +39,8 @@ const Login = () => {
             {contextHolder}
             <Form className='Form'>
                 <h1>Bienvenido</h1>
-                <Form.Item rules={[{type: 'email', message: 'Ingrese un correo valido'}]} name='email' className='field'>
-                    <Input placeholder='Correo'/>
+                <Form.Item name='username' className='field'>
+                    <Input placeholder='Usuario'/>
                 </Form.Item>
                 <Form.Item name='password' className='field'>
                     <Input.Password placeholder='Contraseña'/>

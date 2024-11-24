@@ -34,8 +34,9 @@ app.get('/api/getTreatmentList', (req, res) => {
 })
 
 app.post('/api/login', (req, res) => {
-    const {email, password} = req.body
-    db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
+    const {username, password} = req.body
+    db.get('SELECT * FROM users', (err, user) => {
+        console.log(user)
         if(err){
             console.log(err)
             res.status(500).send('error del servidor')

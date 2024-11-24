@@ -23,6 +23,7 @@ export async function getTreatmentList(){
 
 export async function login(data){
     try{
+        console.log(data)
         let res = await axios.post(`${url}/api/login`, data)
         return res
     }catch(err){
