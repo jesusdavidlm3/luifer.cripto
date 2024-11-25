@@ -34,9 +34,77 @@ body{
 
 .Login, .Register{@include loginRegister;}
 
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bgColor);
+    height: 85vh;
+}
+
 .NavBar{
     display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: var(--moduleColor);
+}
+
+.CheckDates{
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bgColor);
+
+    .listContainer{
+        background-color: var(--moduleColor);
+        width: 90vw;
+        height: 70vh;
+        border-radius: 15px;
+        padding: 20px;
+        overflow: scroll;
+
+        .listItem{
+            border: 3px solid black;
+            margin: 5px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+    }
+}
+
+.MakeDate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bgColor);
+
+    .formulario{
+        background-color: var(--moduleColor);
+        width: 90vw;
+        height: 70vh;
+        border-radius: 15px;
+        padding: 20px;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.AddDoctor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bgColor);
+    .formulario{
+        background-color: var(--moduleColor);
+        width: 90vw;
+        height: 70vh;
+        border-radius: 15px;
+        padding: 20px;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -1,4 +1,4 @@
-import { Input, Form, Button, message } from 'antd'
+import { Input, Form, Button, message, Tooltip } from 'antd'
 import { encrypt } from '../functions/encrypt'
 import { login } from '../client'
 import { useNavigate } from 'react-router-dom'
@@ -48,6 +48,9 @@ const Login = () => {
                 <Button type='primary' onClick={submitLogin}>Iniciar sesion</Button>
                 <h4 onClick={() => navigate('/Register')}>Registrarse</h4>
             </Form>
+            <Tooltip title='En este modulo usted podra iniciar sesion con la informacion suministrada en su registro, de no haberse registrado puede hacerlo en el boton "registrarse dentro de esta seccion"'>
+                <p>Ayuda</p>
+            </Tooltip>
         </div>
     )
 }

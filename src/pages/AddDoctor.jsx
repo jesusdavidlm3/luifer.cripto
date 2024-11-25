@@ -1,4 +1,4 @@
-import { Form, Input, Button, InputNumber } from 'antd'
+import { Form, Input, Button, InputNumber, Tooltip } from 'antd'
 import { encrypt } from '../functions/encrypt'
 import { register } from '../client'
 import { useContext } from 'react'
@@ -45,7 +45,7 @@ const AddDoctor = () => {
     return(
         <div className='AddDoctor'>
             <h1>Registrar nuevo doctor</h1>
-            <Form>
+            <Form className='formulario'>
                 <Form.Item name='idField'>
                     <InputNumber placeholder='Cedula'/>
                 </Form.Item>
@@ -63,6 +63,9 @@ const AddDoctor = () => {
                 </Form.Item>
                 <Button onClick={submitDoc}>Registrar</Button>
             </Form>
+            <Tooltip title='En este modulo es posible realizar el registro de un doctor por parte de un administrador ingresando la informacion correspondiente a este.'>
+                <p>Ayuda</p>
+            </Tooltip>
         </div>
     )
 }

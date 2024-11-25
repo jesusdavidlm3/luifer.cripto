@@ -5,7 +5,6 @@ const url = 'http://localhost:3000'
 export async function getDeseaseList(){
     try{
         let res = await axios.get(`${url}/api/getDeseaseList`)
-        console.log(res)
         return res
     }catch(err){
         return err
@@ -60,6 +59,15 @@ export async function getAllDates(){
 export async function getDates(id) {
     try{
         let res = await axios.get(`${url}/api/getDates/${id}`)
+        return res
+    }catch(err){
+        return err
+    }
+}
+
+export async function getDoctorsDate(id){
+    try{
+        let res = await axios.get(`${url}/api/getDoctorsDate/${id}`)
         return res
     }catch(err){
         return err

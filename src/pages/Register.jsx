@@ -1,4 +1,4 @@
-import { Input, Form, Button, Select, message } from 'antd'
+import { Input, Form, Button, Select, message, Tooltip } from 'antd'
 import { register } from '../client'
 import { useContext, useState } from 'react'
 import { encrypt } from '../functions/encrypt'
@@ -80,6 +80,9 @@ const Register = () => {
                 <Button type='primary' onClick={submitRegister}>Registrarse</Button>
                 <h4 onClick={() => navigate('/Login')}>Iniciar sesion</h4>
             </Form>
+            <Tooltip title='En este modulo usted podra registrarse como paciente ingresando su informacion para posteriormente iniciar sesion'>
+                <p>Ayuda</p>
+            </Tooltip>
         </div>
     )
 }

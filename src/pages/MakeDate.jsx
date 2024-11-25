@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Select, DatePicker, Form, Button } from 'antd'
+import { Select, DatePicker, Form, Button, Tooltip } from 'antd'
 import { appContext } from '../context/appContext'
 import { makeDate } from '../client'
 import { useNavigate } from 'react-router-dom'
@@ -49,7 +49,7 @@ const MakeDate = () => {
     return(
         <div className='MakeDate'>
             <h1>Agendar una nueva cita</h1>
-            <Form>
+            <Form className='formulario'>
                 <Form.Item>
                     <Select placeholder='Seleccione un doctor' options={doctorOptions} onChange={(e) => setSelectedDoctor(e)}/>
                 </Form.Item>
@@ -61,6 +61,9 @@ const MakeDate = () => {
                 </Form.Item>
 
                 <Button onClick={submitDate}>Agendar cita</Button>
+                <Tooltip title='En este modulo se podra agendar una nueva cita para con un doctor por parte de un paciente'>
+                    <p>Ayuda</p>
+                </Tooltip>
             </Form>
         </div>
     )

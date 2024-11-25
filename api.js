@@ -84,8 +84,26 @@ app.post('/api/makeDate', (req, res) => {
     })
 })
 
-app.get('/api/getDoctorDates', (req, res) => {
-    db.all('SELECT * FROM dates WHERE', (err, list) => {
+app.get('/api/getDoctorsDate/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    db.all(`
+            SELECT users.name, dates.doctorId, dates.date, dates.id AS dateId, dates.treatmentId FROM users INNER JOIN dates ON users.id = dates.patientId WHERE dates.doctorId = ?
+        `, [id], (err, list) => {
+        if(err){
+            console.log(err)
+            res.status(500).send('error del servidor')
+        }else{
+            console.log(list)
+            res.status(200).send(list)
+        }
+    })
+})
+
+app.get('/api/getAllDates', (req, res) => {
+    db.all(`
+        SELECT users.name, dates.doctorId, dates.date, dates.id AS dateId, dates.treatmentId FROM users INNER JOIN dates ON users.id = dates.patientId
+    `, (err, list) => {
         if(err){
             console.log(err)
             res.status(500).send('error del servidor')
@@ -97,7 +115,7 @@ app.get('/api/getDoctorDates', (req, res) => {
 
 app.get('/api/getDates/:id', (req, res) => {
     const id = req.params.id
-    db.all('SELECT * FROM dates WHERE patientId = ? OR PatientId = ?', [id, id], (err, list) => {
+    db.all('SELECT * FROM dates WHERE patientId = ?', [id], (err, list) => {
         if(err){
             console.log(err)
             res.status(500).send('error del servidor')
